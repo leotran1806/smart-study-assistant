@@ -47,7 +47,7 @@ smart-study-assistant/
 
 - Step 1. Clone the repository
 
-git clone <repo_url>
+git clone <https://github.com/leotran1806/smart-study-assistant.git>
 cd smart-study-assistant
 
 If you are already working inside the project directory, skip this step.
