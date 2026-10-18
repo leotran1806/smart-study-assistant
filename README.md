@@ -54,7 +54,7 @@ If you are already working inside the project directory, skip this step.
 
 - Step 2. Create a virtual environment
 ```text
-python -m venv .venv
+python -m venv venv
 ```
 - Step 3. Activate the virtual environment
 
