@@ -1,0 +1,3 @@
+Hệ thống đang tiến hành đọc dữ liệu từ tệp văn bản. 
+Yêu cầu kiểm tra lại định dạng dòng và ký tự xuống dòng (CRLF hoặc LF) trước khi phân tích cú pháp.
+Chúc bạn hoàn thành tốt bài tập lập trình!

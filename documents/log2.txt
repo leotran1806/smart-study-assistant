@@ -1,0 +1,5 @@
+Product Name, Category, Price, Stock
+Laptop Pro, Electronics, 1200, 45
+Wireless Mouse, Accessories, 25, 150
+Mechanical Keyboard, Accessories, 85, 80
+Monitor 4K, Electronics, 450, 30
