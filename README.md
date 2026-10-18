@@ -46,30 +46,27 @@ smart-study-assistant/
 ## 5. Setup and Installation
 
 - Step 1. Clone the repository
-
+```text
 git clone <https://github.com/leotran1806/smart-study-assistant.git>
 cd smart-study-assistant
-
+```
 If you are already working inside the project directory, skip this step.
 
 - Step 2. Create a virtual environment
-
+```text
 python -m venv .venv
-
+```
 - Step 3. Activate the virtual environment
 
 On Windows PowerShell:
-
+```text
 .venv\Scripts\Activate.ps1
-
-On macOS or Linux:
-
-source .venv/bin/activate
-
+```
 - Step 4. Install dependencies
-
+```text
 python -m pip install -r requirements.txt
-
+```
 - Step 5. Run the application
-
+```text
 python main.py
+```
