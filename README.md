@@ -70,3 +70,6 @@ python -m pip install -r requirements.txt
 ```text
 python main.py
 ```
+
+## 6. Testing documents:
+Only basic documents are published. The other advanced ones are stored in local device.

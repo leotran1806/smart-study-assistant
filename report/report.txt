@@ -1,0 +1,21 @@
+-------------Report-------------
+Filename: .\documents\log1.txt
+Words count: 37
+Lines count: 4
+Characters count: 265
+---------------------------------
+
+-------------Report-------------
+Filename: .\documents\log2.txt
+Words count: 25
+Lines count: 5
+Characters count: 177
+---------------------------------
+
+-------------Report-------------
+Filename: .\documents\log3.txt
+Words count: 43
+Lines count: 3
+Characters count: 192
+---------------------------------
+
