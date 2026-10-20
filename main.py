@@ -1,5 +1,9 @@
-from text_utils import textNormalize, countWords, document_Analyze, directoryAnalyze
+from text_utils import analyze_directory
 
-folder_path = ".\\documents"
-directoryAnalyze(folder_path)
+def main():
+    folder_path = "./venv/test_suite"
+    analyze_directory(folder_path)
+    
+if __name__ == "__main__":
+    main()
 

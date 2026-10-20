@@ -73,3 +73,18 @@ python main.py
 
 ## 6. Testing documents:
 Only basic documents are published. The other advanced ones are stored in local device.
+
+### 7.Text Analysis Conventions
+
+1. **Word separation:** Words are separated by whitespace in the normalized text. Each non-empty token separated by whitespace is counted as one word.
+
+2. **Words containing punctuation:** A sequence of non-whitespace characters is counted as one word, even if it contains punctuation. For example, `good-looking` and `20/10/2026` are each counted as one word.
+
+3. **Punctuation handling:** Punctuation marks do not create separate words unless they are separated from other text by whitespace.
+
+4. **Text normalization:** All word, character, and line counts are calculated from the normalized text.
+
+5. **Whitespace normalization:** Leading and trailing whitespace is removed, and consecutive whitespace characters, including spaces, tabs, and line breaks, are replaced with a single space.
+
+6. **Character count:** The character count is the number of Unicode code points in the normalized text, including spaces and punctuation.
+7. **Line count**: After reading the text, the data is stored in only one line. An empty file will result in 0 line.

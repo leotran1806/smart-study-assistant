@@ -1,73 +1,59 @@
 import os
-import unicodedata
-def textNormalize(text):
-    preprocessedText = []
-    for char in text:
-        charClassification = unicodedata.category(char)
-        if charClassification == "Cf":
-            continue
-        preprocessedText.append(char)
-    cleanText = "".join(preprocessedText)
-    cleanText = " ".join(cleanText.split())
+def normalize_text(text):
+    cleanText = " ".join(text.split())
+    print(cleanText)
     return cleanText
 
-def countWords(text):
+def words_count_for_normalized_text(text):
     return len(text.split())
 
 def document_Analyze(path_name):
-    word_count = 0
-    lineCount = 0
-    charCount = 0
     try:
         with open(path_name, "r", encoding="utf-8") as file:
-            data = file.readline()
-            lineCount += 1
-            while data:
-                clean_text = textNormalize(data)
-                word_count += countWords(clean_text)
-                charCount += len(clean_text)
-                data = file.readline()
-                if data != '':
-                    lineCount += 1
+            data = file.read()
     except FileNotFoundError:
-        print("File does not exist")
+        print(f"File does not exist: {path_name}")
+        return None
     except PermissionError:
-        print("You do not have permission to read that file!")
+        print(f"Permission denied: {path_name}")
+        return None
+    normalized_text = normalize_text(data)
     result = {"filename": path_name,
-              "wordcount": word_count,
-              "charcount": charCount,
-              "linecount": lineCount}
+              "wordcount": words_count_for_normalized_text(normalized_text),
+              "charcount": len(normalized_text),
+              }
     return result
 
-def directoryAnalyze(folder_path):
+def analyze_directory(folder_path):
     try:
         if os.path.exists(folder_path):
             resultList = []
             for fileName in os.listdir(folder_path):
                 if fileName.endswith(".txt"):
                     pathName = os.path.join(folder_path, fileName)
-                    resultList.append(document_Analyze(pathName))
-            reportWrite(resultList, folder_path)
+                    result = document_Analyze(pathName)
+                    if result is not None:
+                        resultList.append(result)
+            write_report(resultList)
         else:
             print("Directory does not exist!")
     except NotADirectoryError:
         print("Invalid directory")
         
-def reportWrite(resultList, folder_path):
-    folder_path = ".\\report"
-    try:
-        if os.path.exists(folder_path):
-            path_name = os.path.join(folder_path, "report.txt")
-            try:
-                with open(path_name, "w", encoding="utf-8") as file:
-                    for result in resultList:
-                        file.write("-------------Report-------------\n")
-                        file.write(f'Filename: {result["filename"]}\n')
-                        file.write(f'Words count: {result["wordcount"]}\n')
-                        file.write(f'Lines count: {result["linecount"]}\n')
-                        file.write(f'Characters count: {result["charcount"]}\n')
-                        file.write("---------------------------------\n\n")
-            except PermissionError:
-                print("You do not have permission to read that file!")
-    except NotADirectoryError:
-        print("Invalid directory")
+def write_report(resultList):
+    folder_path = "./report"
+    os.makedirs(folder_path, exist_ok= True)
+    if os.path.exists(folder_path):
+        path_name = os.path.join(folder_path, "report.txt")
+        try:
+            with open(path_name, "w", encoding="utf-8") as file:
+                print("Writing report...")
+                for result in resultList:
+                    file.write("-------------Report-------------\n")
+                    file.write(f'Filename: {result["filename"]}\n')
+                    file.write(f'Words count: {result["wordcount"]}\n')
+                    file.write(f'Characters count: {result["charcount"]}\n')
+                    file.write("---------------------------------\n\n")
+                print("Writing complete")
+        except PermissionError:
+            print(f"You do not have permission to write to: {path_name} ")
