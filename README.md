@@ -87,4 +87,5 @@ Only basic documents are published. The other advanced ones are stored in local 
 5. **Whitespace normalization:** Leading and trailing whitespace is removed, and consecutive whitespace characters, including spaces, tabs, and line breaks, are replaced with a single space.
 
 6. **Character count:** The character count is the number of Unicode code points in the normalized text, including spaces and punctuation.
+
 7. **Line count**: After reading the text, the data is stored in only one line. An empty file will result in 0 line.
