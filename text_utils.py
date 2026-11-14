@@ -1,7 +1,6 @@
 import os
 def normalize_text(text):
     cleanText = " ".join(text.split())
-    print(cleanText)
     return cleanText
 
 def words_count_for_normalized_text(text):

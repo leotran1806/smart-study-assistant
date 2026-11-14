@@ -2,20 +2,16 @@ import unittest
 import os
 import sys
 
-# Lấy đường dẫn thư mục hiện tại của file test.py (parent_folder)
-current_dir = os.path.dirname(os.path.abspath(__file__))
-# Lấy đường dẫn thư mục cha của nó (D:\Coding_Project\Python_project)
-parent_dir = os.path.dirname(current_dir)
-
-# Thêm thư mục gốc vào sys.path để Python nhận diện được utils_folder
-sys.path.append(parent_dir)
 import text_utils as utils
 
-class TestNormalizeText(unittest.TestCase):
-    
+class TestFunctions(unittest.TestCase):
     def test_basic(self):
-        output = utils.normalize_text("Hello\nWorld")
-        self.assertEqual(output, "Hello World")
+        with self.subTest("Basic"):
+            output = utils.normalize_text("  Hello   World   ")
+            self.assertNotEndsWith(output, ' ')
+        with self.subTest("A little trickier"):
+            output = utils.normalize_text("Hello\nWorld")
+            self.assertEqual(output, "Hello World")
         
     def test_with_tab_char(self):
         self.maxDiff = None
@@ -32,6 +28,28 @@ class TestNormalizeText(unittest.TestCase):
             'Email: user.test+1@sub.domain.co.uk ... Cost: $1,234.56 / 50.5% '
             'Wait... what?! No way--yes\u200bway! '
             'Final line without trailing newline.')
+    
+    def test_words_count_for_normalized_text_basic(self):
+        text = " Hello how are you \x0f"
+        self.assertEqual(utils.words_count_for_normalized_text(utils.normalize_text(text)), 5)
+        
+    def test_words_count_for_normalized_text_medium(self):
+        text = """Hệ thống đang tiến hành đọc dữ liệu từ tệp văn bản. 
+                Yêu cầu kiểm tra lại định dạng dòng và ký tự xuống dòng (CRLF hoặc LF) trước khi phân tích cú pháp.
+                Chúc bạn hoàn thành tốt bài tập lập trình!"""
+        self.assertTrue(utils.words_count_for_normalized_text(utils.normalize_text(text)) == 43)
+        
+    def test_document_analyze_basic(self):
+        path_name = './documents/log1.txt'
+        result = {"filename": './documents/log1.txt',
+                  "wordcount": 35,
+                  "charcount": 100}
+        self.assertFalse(utils.document_Analyze(path_name) == result)
+        
+    def test_document_analyze_non_existing_file(self):
+        path_name = './documents/log12.txt'
+        self.assertRaises(FileNotFoundError)
+        
 if __name__ == "__main__":
     unittest.main()
 
