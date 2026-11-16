@@ -1,24 +1,24 @@
 -------------Report-------------
-Filename: ./venv/test_suite\protocol_test_text.txt
+Filename: ./documents\log1.txt
+Words count: 36
+Characters count: 267
+---------------------------------
+
+-------------Report-------------
+Filename: ./documents\log2.txt
+Words count: 25
+Characters count: 181
+---------------------------------
+
+-------------Report-------------
+Filename: ./documents\log3.txt
+Words count: 43
+Characters count: 194
+---------------------------------
+
+-------------Report-------------
+Filename: ./documents\log4.txt
 Words count: 0
 Characters count: 0
----------------------------------
-
--------------Report-------------
-Filename: ./venv/test_suite\text_en.txt
-Words count: 28
-Characters count: 217
----------------------------------
-
--------------Report-------------
-Filename: ./venv/test_suite\text_vi_1.txt
-Words count: 41
-Characters count: 196
----------------------------------
-
--------------Report-------------
-Filename: ./venv/test_suite\text_vi_2.txt
-Words count: 47
-Characters count: 203
 ---------------------------------
 

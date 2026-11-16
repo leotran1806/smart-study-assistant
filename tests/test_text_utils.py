@@ -1,7 +1,4 @@
 import unittest
-import os
-import sys
-
 import text_utils as utils
 
 class TestFunctions(unittest.TestCase):
@@ -44,7 +41,7 @@ class TestFunctions(unittest.TestCase):
         result = {"filename": './documents/log1.txt',
                   "wordcount": 35,
                   "charcount": 100}
-        self.assertFalse(utils.document_Analyze(path_name) == result)
+        self.assertFalse(utils.document_analyze(path_name) == result)
         
     def test_document_analyze_non_existing_file(self):
         path_name = './documents/log12.txt'

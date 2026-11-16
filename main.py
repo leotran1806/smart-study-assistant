@@ -1,8 +1,8 @@
-from text_utils import analyze_directory
+from text_utils import directory_analyze
 
 def main():
-    folder_path = "./venv/test_suite"
-    analyze_directory(folder_path)
+    folder_path = "./documents"
+    directory_analyze(folder_path)
     
 if __name__ == "__main__":
     main()
